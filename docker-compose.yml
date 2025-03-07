@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  remote-chrome:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: remote-chrome
+    ports:
+      - "9870:9870"
+    environment:
+      - VNC_PASSWORD=your_password_here
+    restart: unless-stopped
