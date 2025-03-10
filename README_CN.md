@@ -9,7 +9,7 @@
 
 ## 使用方法
 
-### 使用 Docker
+### 快速开始
 
 ```
 docker run -d \
@@ -18,6 +18,8 @@ docker run -d \
   -e VNC_PASSWORD=your_secure_password_here \
   ghcr.io/novaraye/remote-chrome:latest
 ```
+
+运行 Docker 命令后，您可以通过浏览器访问 http://localhost:9870 访问远程 Chrome 浏览器。
 
 ### 环境变量
 

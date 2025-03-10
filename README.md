@@ -10,7 +10,7 @@ A Docker container with Google Chrome browser accessible remotely via web browse
 
 ## Usage
 
-### Using Docker CLI
+### Quick Start
 
 ```
 docker run -d \
@@ -19,6 +19,8 @@ docker run -d \
   -e VNC_PASSWORD=your_secure_password_here \
   ghcr.io/novaraye/remote-chrome:latest
 ```
+
+After running the Docker command, you can access the Remote Chrome browser via your web browser at http://localhost:9870 
 
 ### Environment Variables
 
