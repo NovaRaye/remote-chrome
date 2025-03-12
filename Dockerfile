@@ -18,7 +18,7 @@ ENV VNC_TITLE="Chromium" \
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && \
-    apt-get install -y tzdata ca-certificates supervisor tigervnc-standalone-server websockify openbox libnss3 libgbm1 libasound2 fonts-droid-fallback wget gnupg && \
+    apt-get install -y tzdata ca-certificates supervisor tigervnc-standalone-server websockify openbox libnss3 libgbm1 libasound2 fonts-droid-fallback wget gnupg socat && \
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
     apt-get update && \

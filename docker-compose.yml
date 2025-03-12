@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: remote-chrome
     ports:
-      - "9870:9870"
-      - "9222:9222"
+      - "127.0.0.1:9870:9870"
+      - "127.0.0.1:9222:9222"
     environment:
       - VNC_PASSWORD=your_password_here
     restart: unless-stopped
