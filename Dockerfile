@@ -8,6 +8,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ENV VNC_TITLE="Chromium" \
     VNC_RESOLUTION="1920x1080" \
+    CHROME_AUTOSTART="true" \
+    CHROME_AUTORESTART="true" \
     VNC_SHARED=0 \
     DISPLAY=:0 \
     LANG=en_US.UTF-8 \
@@ -38,6 +40,6 @@ RUN mkdir -p /opt/chrome-extensions && \
 
 COPY rootfs/ /
 
-ENTRYPOINT ["supervisord", "-l", "/var/log/supervisord.log", "-c"]
+RUN chmod +x /scripts/*.sh
 
-CMD ["/config/supervisord.conf"]
+ENTRYPOINT ["supervisord", "-l", "/var/log/supervisord.log", "-c", "/config/supervisord.conf"]
