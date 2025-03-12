@@ -1,13 +1,13 @@
 FROM debian:bullseye-slim
 
-LABEL AboutImage="Chromium_NoVNC"
+LABEL AboutImage="Chrome_NoVNC"
 
 LABEL Maintainer="raye <s@raye.moe>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV VNC_TITLE="Chromium" \
-    VNC_RESOLUTION="1280x720" \
+    VNC_RESOLUTION="1920x1080" \
     VNC_SHARED=0 \
     DISPLAY=:0 \
     LANG=en_US.UTF-8 \
@@ -32,6 +32,9 @@ RUN apt-get update && \
     echo $TZ > /etc/timezone && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
+
+RUN mkdir -p /opt/chrome-extensions && \
+    chmod 755 /opt/chrome-extensions
 
 COPY rootfs/ /
 

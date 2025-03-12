@@ -10,5 +10,5 @@ services:
       - "127.0.0.1:9870:9870"
       - "127.0.0.1:9222:9222"
     environment:
-      - VNC_PASSWORD=your_password_here
+      - VNC_PASSWORD=your_secure_password_here
     restart: unless-stopped
