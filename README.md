@@ -76,3 +76,4 @@ All valid extensions placed in this structure will be loaded automatically when 
 
 - `VNC_PASSWORD`: Set a password for VNC access (if not set, no authentication is used)
 - `VNC_RESOLUTION`: Screen resolution (default: 1920x1080)
+- `HTTP_PROXY`: HTTP proxy server (e.g., http://proxy.example.com:8080)

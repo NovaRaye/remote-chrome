@@ -21,4 +21,26 @@ if [ -d "/opt/chrome-extensions" ] && [ "$(ls -A /opt/chrome-extensions 2>/dev/n
     fi
 fi
 
+# Handle proxy settings
+if [ ! -z "$HTTP_PROXY" ] || [ ! -z "$http_proxy" ]; then
+    PROXY="${HTTP_PROXY:-$http_proxy}"
+    echo "Using HTTP proxy: $PROXY"
+    CHROME_CMD="$CHROME_CMD --proxy-server=$PROXY"
+elif [ ! -z "$HTTPS_PROXY" ] || [ ! -z "$https_proxy" ]; then
+    PROXY="${HTTPS_PROXY:-$https_proxy}"
+    echo "Using HTTPS proxy: $PROXY"
+    CHROME_CMD="$CHROME_CMD --proxy-server=$PROXY"
+elif [ ! -z "$ALL_PROXY" ] || [ ! -z "$all_proxy" ]; then
+    PROXY="${ALL_PROXY:-$all_proxy}"
+    echo "Using proxy: $PROXY"
+    CHROME_CMD="$CHROME_CMD --proxy-server=$PROXY"
+fi
+
+# Check for no proxy settings
+if [ ! -z "$NO_PROXY" ] || [ ! -z "$no_proxy" ]; then
+    NO_PROXY_LIST="${NO_PROXY:-$no_proxy}"
+    echo "No proxy for: $NO_PROXY_LIST"
+    CHROME_CMD="$CHROME_CMD --proxy-bypass-list=$NO_PROXY_LIST"
+fi
+
 exec $CHROME_CMD

@@ -76,3 +76,4 @@ docker run -d \
 
 - `VNC_PASSWORD`: 设置 VNC 访问密码(如果未设置，则不使用身份验证)
 - `VNC_RESOLUTION`: 屏幕分辨率(默认: 1920x1080)
+- `HTTP_PROXY`: HTTP 代理服务器（例如：http://proxy.example.com:8080）
