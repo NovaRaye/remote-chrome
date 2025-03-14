@@ -56,7 +56,21 @@ docker run -d \
   ghcr.io/novaraye/remote-chrome:latest
 ```
 
-After starting the container, Chrome will load these extensions automatically.
+#### Extension Directory Structure
+
+Each extension must be in its own subdirectory within `/opt/chrome-extensions/`:
+
+```
+/opt/chrome-extensions/
+├── extension1/
+│   ├── manifest.json
+│   └── ... (extension files)
+├── extension2/
+│   ├── manifest.json
+│   └── ... (extension files)
+```
+
+All valid extensions placed in this structure will be loaded automatically when the container starts.
 
 ### Environment Variables
 

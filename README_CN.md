@@ -56,7 +56,21 @@ docker run -d \
   ghcr.io/novaraye/remote-chrome:latest
 ```
 
-启动容器后，Chrome 将自动加载这些扩展。
+#### 扩展目录结构
+
+每个扩展必须位于`/opt/chrome-extensions/`目录下的独立子目录中：
+
+```
+/opt/chrome-extensions/
+├── extension1/
+│   ├── manifest.json
+│   └── ... (扩展文件)
+├── extension2/
+│   ├── manifest.json
+│   └── ... (扩展文件)
+```
+
+所有按照此结构放置的有效扩展将在容器启动时自动加载。
 
 ### 环境变量
 
