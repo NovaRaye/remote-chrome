@@ -2,6 +2,11 @@
 
 CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222"
 
+if [ ! -z "$CHROME_USER_DATA_DIR" ]; then
+    echo "Using custom user data directory: $CHROME_USER_DATA_DIR"
+    CHROME_CMD="$CHROME_CMD --user-data-dir=$CHROME_USER_DATA_DIR"
+fi
+
 EXTENSIONS=""
 
 if [ -d "/opt/chrome-extensions" ] && [ "$(ls -A /opt/chrome-extensions 2>/dev/null)" ]; then
