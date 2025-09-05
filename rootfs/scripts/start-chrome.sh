@@ -1,16 +1,11 @@
 #!/bin/bash
 
-CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222"
-
-if [ ! -z "$CHROME_USER_DATA_DIR" ]; then
-    echo "Using custom user data directory: $CHROME_USER_DATA_DIR"
-    CHROME_CMD="$CHROME_CMD --user-data-dir=$CHROME_USER_DATA_DIR"
-fi
+CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=/data/chrome-user-data"
 
 EXTENSIONS=""
 
-if [ -d "/opt/chrome-extensions" ] && [ "$(ls -A /opt/chrome-extensions 2>/dev/null)" ]; then
-    for ext_dir in /opt/chrome-extensions/*; do
+if [ -d "/data/chrome-extensions" ] && [ "$(ls -A /data/chrome-extensions 2>/dev/null)" ]; then
+    for ext_dir in /data/chrome-extensions/*; do
         if [ -d "$ext_dir" ]; then
             if [ -z "$EXTENSIONS" ]; then
                 EXTENSIONS="$ext_dir"

@@ -52,16 +52,16 @@ docker run -d \
   -p 9870:9870 \
   -p 9222:9222 \
   -e VNC_PASSWORD=your_secure_password_here \
-  -v /path/to/your/extensions:/opt/chrome-extensions \
+  -v /path/to/your/extensions:/data/chrome-extensions \
   ghcr.io/novaraye/remote-chrome:latest
 ```
 
 #### Extension Directory Structure
 
-Each extension must be in its own subdirectory within `/opt/chrome-extensions/`:
+Each extension must be in its own subdirectory within `/data/chrome-extensions/`:
 
 ```
-/opt/chrome-extensions/
+/data/chrome-extensions/
 ├── extension1/
 │   ├── manifest.json
 │   └── ... (extension files)

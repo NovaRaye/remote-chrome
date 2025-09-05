@@ -11,4 +11,6 @@ services:
       - "127.0.0.1:9222:9222"
     environment:
       - VNC_PASSWORD=your_secure_password_here
+    volumes:
+      - ./chrome-data:/data/chrome-user-data
     restart: unless-stopped

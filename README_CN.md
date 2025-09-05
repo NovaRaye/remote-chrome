@@ -52,16 +52,16 @@ docker run -d \
   -p 9870:9870 \
   -p 9222:9222 \
   -e VNC_PASSWORD=your_secure_password_here \
-  -v /path/to/your/extensions:/opt/chrome-extensions \
+  -v /path/to/your/extensions:/data/chrome-extensions \
   ghcr.io/novaraye/remote-chrome:latest
 ```
 
 #### 扩展目录结构
 
-每个扩展必须位于`/opt/chrome-extensions/`目录下的独立子目录中：
+每个扩展必须位于`/data/chrome-extensions/`目录下的独立子目录中：
 
 ```
-/opt/chrome-extensions/
+/data/chrome-extensions/
 ├── extension1/
 │   ├── manifest.json
 │   └── ... (扩展文件)

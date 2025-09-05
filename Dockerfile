@@ -35,8 +35,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-RUN mkdir -p /opt/chrome-extensions && \
-    chmod 755 /opt/chrome-extensions
+RUN mkdir -p /data/chrome-extensions && \
+    chmod 755 /data/chrome-extensions && \
+    mkdir -p /data/chrome-user-data && \
+    chmod 755 /data/chrome-user-data
 
 COPY rootfs/ /
 
