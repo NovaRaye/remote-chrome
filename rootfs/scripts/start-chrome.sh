@@ -1,6 +1,15 @@
 #!/bin/bash
 
-CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=/data/chrome-user-data"
+CHROME_USER_DATA_DIR="/data/chrome-user-data"
+
+mkdir -p "$CHROME_USER_DATA_DIR"
+
+echo "Cleaning Chrome lock files..."
+rm -f "$CHROME_USER_DATA_DIR/SingletonLock"
+rm -f "$CHROME_USER_DATA_DIR/SingletonSocket" 
+rm -f "$CHROME_USER_DATA_DIR/SingletonCookie"
+
+CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_USER_DATA_DIR"
 
 EXTENSIONS=""
 
