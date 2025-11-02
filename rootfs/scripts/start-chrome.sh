@@ -18,7 +18,7 @@ rm -f "$CHROME_PROFILE_DIR/SingletonLock"
 rm -f "$CHROME_PROFILE_DIR/SingletonSocket" 
 rm -f "$CHROME_PROFILE_DIR/SingletonCookie"
 
-CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_PROFILE_DIR --disable-gpu --use-gl=swiftshader --disable-3d-apis"
+CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_PROFILE_DIR"
 
 EXTENSIONS=""
 
