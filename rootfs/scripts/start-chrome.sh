@@ -13,10 +13,13 @@ echo "Using Chrome profile: $CHROME_PROFILE"
 
 mkdir -p "$CHROME_PROFILE_DIR"
 
-echo "Cleaning Chrome lock files..."
+echo "Cleaning Chrome lock files and cache..."
 rm -f "$CHROME_PROFILE_DIR/SingletonLock"
 rm -f "$CHROME_PROFILE_DIR/SingletonSocket" 
 rm -f "$CHROME_PROFILE_DIR/SingletonCookie"
+rm -rf "$CHROME_PROFILE_DIR/GPUCache"
+rm -rf "$CHROME_PROFILE_DIR/ShaderCache"
+rm -f "$CHROME_PROFILE_DIR/Preferences.lock"
 
 CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_PROFILE_DIR"
 
