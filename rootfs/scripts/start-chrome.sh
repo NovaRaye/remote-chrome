@@ -2,14 +2,23 @@
 
 CHROME_USER_DATA_DIR="/data/chrome-user-data"
 
-mkdir -p "$CHROME_USER_DATA_DIR"
+# Support for multiple profiles via CHROME_PROFILE environment variable
+# If CHROME_PROFILE is not set, use "default" as the profile name
+if [ -z "$CHROME_PROFILE" ]; then
+    CHROME_PROFILE="default"
+fi
+
+CHROME_PROFILE_DIR="$CHROME_USER_DATA_DIR/profiles/$CHROME_PROFILE"
+echo "Using Chrome profile: $CHROME_PROFILE"
+
+mkdir -p "$CHROME_PROFILE_DIR"
 
 echo "Cleaning Chrome lock files..."
-rm -f "$CHROME_USER_DATA_DIR/SingletonLock"
-rm -f "$CHROME_USER_DATA_DIR/SingletonSocket" 
-rm -f "$CHROME_USER_DATA_DIR/SingletonCookie"
+rm -f "$CHROME_PROFILE_DIR/SingletonLock"
+rm -f "$CHROME_PROFILE_DIR/SingletonSocket" 
+rm -f "$CHROME_PROFILE_DIR/SingletonCookie"
 
-CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_USER_DATA_DIR"
+CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_PROFILE_DIR"
 
 EXTENSIONS=""
 

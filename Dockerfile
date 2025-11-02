@@ -10,6 +10,7 @@ ENV VNC_TITLE="Chromium" \
     VNC_RESOLUTION="1920x1080" \
     CHROME_AUTOSTART="true" \
     CHROME_AUTORESTART="true" \
+    CHROME_PROFILE="default" \
     VNC_SHARED=0 \
     DISPLAY=:0 \
     LANG=en_US.UTF-8 \
