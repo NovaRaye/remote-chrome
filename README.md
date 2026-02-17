@@ -42,6 +42,27 @@ const puppeteer = require("puppeteer");
 })();
 ```
 
+### OpenClaw Integration
+
+You can connect [OpenClaw](https://openclaw.ai) to the remote Chrome container by configuring the browser profile in your OpenClaw settings:
+
+```json
+{
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "remote-chrome",
+    "profiles": {
+      "remote-chrome": {
+        "cdpUrl": "http://127.0.0.1:9222",
+        "color": "ff5733"
+      }
+    }
+  }
+}
+```
+
+Replace `127.0.0.1` with the actual IP address of your Docker host or container if needed. The `color` field sets the indicator color for this profile in the OpenClaw UI.
+
 ### Installing Extensions
 
 You can install Chrome extensions by mapping a local directory with your extensions to the container:

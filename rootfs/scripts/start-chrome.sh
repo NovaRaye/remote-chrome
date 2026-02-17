@@ -19,7 +19,10 @@ rm -f "$CHROME_PROFILE_DIR/SingletonSocket"
 rm -f "$CHROME_PROFILE_DIR/SingletonCookie"
 rm -rf "$CHROME_PROFILE_DIR/GPUCache"
 rm -rf "$CHROME_PROFILE_DIR/ShaderCache"
+rm -rf "$CHROME_PROFILE_DIR/DawnCache"
+rm -rf "$CHROME_PROFILE_DIR/GraphiteDawnCache"
 rm -f "$CHROME_PROFILE_DIR/Preferences.lock"
+rm -f "$CHROME_PROFILE_DIR/Local State"
 
 CHROME_CMD="/usr/bin/google-chrome-stable --no-sandbox --test-type --disable-dev-shm-usage --start-maximized --no-first-run --remote-debugging-port=19222 --user-data-dir=$CHROME_PROFILE_DIR"
 

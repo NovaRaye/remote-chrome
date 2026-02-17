@@ -42,6 +42,27 @@ const puppeteer = require("puppeteer");
 })();
 ```
 
+### OpenClaw 集成
+
+您可以通过在 OpenClaw 配置中设置浏览器 Profile，将 [OpenClaw](https://openclaw.ai) 连接到远程 Chrome 容器：
+
+```json
+{
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "remote-chrome",
+    "profiles": {
+      "remote-chrome": {
+        "cdpUrl": "http://127.0.0.1:9222",
+        "color": "ff5733"
+      }
+    }
+  }
+}
+```
+
+如有需要，将 `127.0.0.1` 替换为您的 Docker 宿主机或容器的实际 IP 地址。`color` 字段用于设置该 Profile 在 OpenClaw 界面中的指示颜色。
+
 ### 安装扩展
 
 您可以通过将本地扩展目录映射到容器来安装 Chrome 扩展：
