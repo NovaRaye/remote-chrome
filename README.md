@@ -50,9 +50,9 @@ You can connect [OpenClaw](https://openclaw.ai) to the remote Chrome container b
 {
   "browser": {
     "enabled": true,
-    "defaultProfile": "remote-chrome",
+    "defaultProfile": "openclaw",
     "profiles": {
-      "remote-chrome": {
+      "openclaw": {
         "cdpUrl": "http://127.0.0.1:9222",
         "color": "ff5733"
       }
